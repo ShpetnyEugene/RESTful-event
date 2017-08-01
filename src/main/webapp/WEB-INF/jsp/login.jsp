@@ -6,6 +6,6 @@
     <title>Hello</title>
 </head>
 <body>
-Hello ${name}
+<h1 style="text-align: center;">LOGIN ${name}
 </body>
 </html>

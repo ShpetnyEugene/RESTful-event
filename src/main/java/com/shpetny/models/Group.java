@@ -5,7 +5,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document
+
+/**
+ * @author Shpetny Eugene
+ * @version 1.0
+ */
+@Document(collection = "groups")
 public class Group {
     @Id
     private long id;

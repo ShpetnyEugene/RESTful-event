@@ -5,7 +5,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document
+/**
+ * @author Shpetny Eugene
+ * @version 1.0
+ */
+@Document(collection = "users")
 public class User {
     @Id
     private long id;

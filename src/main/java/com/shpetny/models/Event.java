@@ -5,14 +5,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
-@Document
+/**
+ * @author Shpetny Eugene
+ * @version 1.0
+ */
+@Document(collection = "events")
 public class Event {
     @Id
     private long id;
     private String name;
     /**
      * TODO group ID or just group ?
-     * */
+     */
     private long groupId;
     private LocalDateTime dateTime;
     private Coordinate coordinate;

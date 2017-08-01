@@ -1,11 +1,10 @@
 package com.shpetny.persistence;
 
-import com.shpetny.models.User;
+import com.shpetny.models.Event;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, Long> {
-    // TODO
-    User findById(long id);
+public interface EventRepository extends MongoRepository<Event,Long>{
+
 }
