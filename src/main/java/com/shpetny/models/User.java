@@ -12,6 +12,7 @@ import java.util.List;
 @Document(collection = "users")
 public class User {
     @Id
+    // TODO ADD AUTO GENERATED THIS FIELD
     private long id;
     private String nickName;
     private String password;
@@ -24,6 +25,11 @@ public class User {
         this.password = password;
         this.coordinate = coordinate;
         this.groups = groups;
+    }
+
+    public User(String nickName, String password) {
+        this.nickName = nickName;
+        this.password = password;
     }
 
     public User() {

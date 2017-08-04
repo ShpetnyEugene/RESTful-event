@@ -8,4 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends MongoRepository<User, Long> {
     // TODO
     User findById(long id);
+
+    // TODO
+    User findByNickName(String nickName);
 }

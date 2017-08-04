@@ -1,33 +1,39 @@
 package com.shpetny.controllers;
 
-
 import com.shpetny.services.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping(value = "/login")
 public class LoginController {
 
+    private static final Logger log = Logger.getLogger(LoginController.class);
+
+    private final UserService service;
+
     @Autowired
-    private UserService service;
+    public LoginController(UserService service) {
+        this.service = service;
+    }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLoginPage(ModelMap model) {
+    @GetMapping
+    public String showLoginPage() {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String showPage(@RequestParam String name, @RequestParam String password) {
+    // TODO Login and redirect home final static ?
 
-
-        return "welcome";
+    @PostMapping
+    public String showPage(@RequestParam("login") String login, @RequestParam("password") String password) {
+        if(service.checkPasswordByLogin(login,password)){
+            return "redirect:home";
+        }else {
+            return "login";
+        }
     }
-
-
 }

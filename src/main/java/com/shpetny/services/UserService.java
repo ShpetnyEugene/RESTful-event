@@ -7,16 +7,32 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    private final UserRepository repository;
 
+    private final UserRepository repository;
 
     @Autowired
     public UserService(UserRepository repository) {
         this.repository = repository;
     }
 
+    public User getUserById(long idUser){
+        return repository.findById(idUser);
+    }
 
-    public User addUser(User user){
-        return repository.save(user);
+    public User getUserByNickName(String nickName){
+        return repository.findByNickName(nickName);
+    }
+
+    public boolean checkPasswordByLogin(String login, String password){
+        User user = repository.findByNickName(login);
+        if(user != null && user.getPassword().equals(password)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public void addUser(User user){
+        repository.save(user);
     }
 }

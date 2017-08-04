@@ -9,11 +9,3 @@ public interface EventRepository extends MongoRepository<Event,Long>{
 
 
 }
-
-
-/*
-*   SQL -
-*   NOSQL - collections
-*
-*
-* **/

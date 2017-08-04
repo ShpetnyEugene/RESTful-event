@@ -1,16 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: shpet
-  Date: 02.08.2017
-  Time: 14:56
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<hr>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Event manager. Created by Shpetny Eugene</p>
+    </div>
+</footer>
+    </body>
 </html>
