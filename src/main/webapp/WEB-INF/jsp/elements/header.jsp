@@ -11,16 +11,6 @@
 
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-
-
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/resources/bootstrap/js/docs.min.js"></script>
-
-
-    <script type="text/javascript"
-            src="${pageContext.request.contextPath}/resources/jquery/jquery-3.1.1.min.js"></script>
-
-
 </head>
 <body>
 
@@ -65,7 +55,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
-                <li class="dropdown">
+                <li cla1ss="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">

@@ -25,11 +25,7 @@ public class UserService {
 
     public boolean checkPasswordByLogin(String login, String password){
         User user = repository.findByNickName(login);
-        if(user != null && user.getPassword().equals(password)){
-            return true;
-        }else {
-            return false;
-        }
+        return user != null && user.getPassword().equals(password);
     }
 
     public void addUser(User user){
