@@ -5,7 +5,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-
 /**
  * @author Shpetny Eugene
  * @version 1.0
@@ -23,6 +22,11 @@ public class Group {
         this.name = name;
         this.users = users;
         this.events = events;
+    }
+
+
+    public Group(String name) {
+        this.name = name;
     }
 
     public long getId() {

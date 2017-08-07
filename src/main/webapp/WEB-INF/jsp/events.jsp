@@ -1,4 +1,46 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="elements/header.jsp"/>
+
+
+<form action="${pageContext.request.contextPath}/groups/events" method="post">
+
+
+    <%--<table>--%>
+        <%--<tr>--%>
+            <%--Name:--%>
+        <%--</tr>--%>
+        <%----%>
+        <%--<tr>--%>
+            <%--Coordinate:--%>
+        <%--</tr>--%>
+        <%----%>
+        <%----%>
+        <%--<c:forEach items="events" var="{items}">--%>
+            <%----%>
+        <%--</c:forEach>--%>
+    <%--</table>--%>
+
+
+    <label>
+        <input type="text" name="name">
+    </label>
+
+    <p>
+
+
+        <label>
+            <input type="text" name="latitude">
+        </label>
+    <p>
+        <label>
+            <input type="text" name="longitude">
+        </label>
+
+
+    <p>
+
+        <button type="submit">Create event</button>
+</form>
 
 
 <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=
