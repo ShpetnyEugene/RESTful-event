@@ -12,15 +12,14 @@ import java.util.List;
 @Document(collection = "users")
 public class User {
     @Id
-    // TODO ADD AUTO GENERATED THIS FIELD
-    private long id;
+    private String id;
     private String nickName;
     private String password;
     private Coordinate coordinate;
     private List<Group> groups;
 
-    public User(long id, String nickName, String password, Coordinate coordinate, List<Group> groups) {
-        this.id = id;
+
+    public User(String nickName, String password, Coordinate coordinate, List<Group> groups) {
         this.nickName = nickName;
         this.password = password;
         this.coordinate = coordinate;
@@ -35,11 +34,11 @@ public class User {
     public User() {
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -82,7 +81,7 @@ public class User {
 
         User user = (User) o;
 
-        if (id != user.id) return false;
+        if (id != null ? !id.equals(user.id) : user.id != null) return false;
         if (nickName != null ? !nickName.equals(user.nickName) : user.nickName != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (coordinate != null ? !coordinate.equals(user.coordinate) : user.coordinate != null) return false;
@@ -91,7 +90,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (nickName != null ? nickName.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (coordinate != null ? coordinate.hashCode() : 0);
@@ -102,7 +101,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", nickName='" + nickName + '\'' +
                 ", password='" + password + '\'' +
                 ", coordinate=" + coordinate +

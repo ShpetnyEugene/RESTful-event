@@ -23,12 +23,11 @@ public class GroupService {
     public void createGroup(String name,long userID){
         Group group = new Group(name);
 
-        //  TODO Найти юзера по id и добавить его в список или просто получить id из сессии
 
-
-        // TODO ВОЗМОЖЕН БРЕД !!!!!!!
+        // TODO CHANGE THIS MAYBE_
         userRepository.findOne(userID).getGroups().add(group);
         group.getUsers().add(userRepository.findById(userID));
+
 
         repository.save(group);
     }

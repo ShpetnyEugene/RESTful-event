@@ -32,13 +32,6 @@ public class LoginController {
         return "login";
     }
 
-    // TODO Login and redirect home final static ?
-
-
-    // TODO NEED ADD USER IN SESSION
-
-
-
     @PostMapping
     public String showPage(@RequestParam("login") String login, @RequestParam("password") String password) {
         if (service.checkPasswordByLogin(login, password)) {

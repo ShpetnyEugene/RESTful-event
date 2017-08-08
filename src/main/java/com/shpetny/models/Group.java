@@ -12,28 +12,29 @@ import java.util.List;
 @Document(collection = "groups")
 public class Group {
     @Id
-    private long id;
+    private String id;
     private String name;
     private List<User> users;
     private List<Event> events;
 
-    public Group(long id, String name, List<User> users, List<Event> events) {
-        this.id = id;
+    public Group(String name, List<User> users, List<Event> events) {
         this.name = name;
         this.users = users;
         this.events = events;
     }
 
-
     public Group(String name) {
         this.name = name;
     }
 
-    public long getId() {
+    public Group() {
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -68,7 +69,7 @@ public class Group {
 
         Group group = (Group) o;
 
-        if (id != group.id) return false;
+        if (id != null ? !id.equals(group.id) : group.id != null) return false;
         if (name != null ? !name.equals(group.name) : group.name != null) return false;
         if (users != null ? !users.equals(group.users) : group.users != null) return false;
         return events != null ? events.equals(group.events) : group.events == null;
@@ -76,7 +77,7 @@ public class Group {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (users != null ? users.hashCode() : 0);
         result = 31 * result + (events != null ? events.hashCode() : 0);
@@ -86,7 +87,7 @@ public class Group {
     @Override
     public String toString() {
         return "Group{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", users=" + users +
                 ", events=" + events +

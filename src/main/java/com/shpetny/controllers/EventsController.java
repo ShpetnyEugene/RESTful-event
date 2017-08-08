@@ -6,40 +6,37 @@ import com.shpetny.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 
 @Controller
-
-// TODO ВОЗМОЖЕН БРЕД !!!!!
-@RequestMapping("/groups/{groupID}/events")
+@RequestMapping("/users/{userId}/groups/{groupId}/events")
 public class EventsController {
 
+    private final EventService service;
 
     @Autowired
-    private EventService service;
+    public EventsController(EventService service) {
+        this.service = service;
+    }
 
     @GetMapping
-    public String showPages(ModelMap map) {
-        map.put("events",service.getAllEvents());
+    public String showPages(ModelMap map, @PathVariable("groupId") String groupId,
+                            @PathVariable("userId") String userId) {
+        map.put("events",service.getAllEvents(groupId));
         return "events";
     }
 
     @PostMapping
     public void createEvent(@RequestParam("name") String name,
                             @RequestParam("latitude") String latitude,
-                            @RequestParam("Date") String date,
-                            @RequestParam("longitude") String longitude) {
+                            @RequestParam("date") String date,
+                            @RequestParam("longitude") String longitude, @PathVariable("groupId") String groupId) {
 
-
-        // TODO CHANGE GROUP ID
 
         // TODO CHANGE DATE TIME
-        service.createEvent(new Event(name, 1, LocalDateTime.now(),
+        service.createEvent(new Event(name, groupId, LocalDateTime.now(),
                 new Coordinate(Double.parseDouble(latitude), Double.parseDouble(longitude))));
     }
 }
