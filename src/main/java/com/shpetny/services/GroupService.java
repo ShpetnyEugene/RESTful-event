@@ -4,6 +4,9 @@ import com.shpetny.models.Group;
 import com.shpetny.persistence.GroupRepository;
 import com.shpetny.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,16 +23,25 @@ public class GroupService {
         this.userRepository = userRepository;
     }
 
-    public void createGroup(String name,long userID){
+    public void createGroup(String name){
         Group group = new Group(name);
 
 
         // TODO CHANGE THIS MAYBE_
-        userRepository.findOne(userID).getGroups().add(group);
-        group.getUsers().add(userRepository.findById(userID));
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String nameUser = auth.getName(); //get logged in username
+    //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
 
-        repository.save(group);
+        name.isEmpty();
+
+
+//        userRepository.findOne(userID).getGroups().add(group);
+//        group.getUsers().add(userRepository.findById(userID));
+//
+//
+//        repository.save(group);
     }
 
 

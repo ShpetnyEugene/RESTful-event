@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @Controller
-@RequestMapping(value = "/login")
+@RequestMapping("/login")
 public class LoginController {
 
     private static final Logger log = Logger.getLogger(LoginController.class);
@@ -33,7 +33,7 @@ public class LoginController {
     }
 
     @PostMapping
-    public String showPage(@RequestParam("login") String login, @RequestParam("password") String password) {
+    public String enterInSystem(@RequestParam("login") String login, @RequestParam("password") String password) {
         if (service.checkPasswordByLogin(login, password)) {
             log.info("Login user with nickName: " + login);
             return "redirect:home";

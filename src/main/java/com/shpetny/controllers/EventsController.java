@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 
 @Controller
-@RequestMapping("/users/{userId}/groups/{groupId}/events")
+@RequestMapping("/events")
 public class EventsController {
 
     private final EventService service;

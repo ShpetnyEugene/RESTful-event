@@ -2,7 +2,7 @@
 <jsp:include page="elements/header.jsp"/>
 
 
-<form action="${pageContext.request.contextPath}/groups/events" method="post">
+<form action="${pageContext.request.contextPath}/events" method="post">
 
 
     <%--<table>--%>

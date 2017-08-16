@@ -15,10 +15,6 @@ public class UserService {
         this.repository = repository;
     }
 
-    public User getUserById(long idUser){
-        return repository.findById(idUser);
-    }
-
     public User getUserByNickName(String nickName){
         return repository.findByNickName(nickName);
     }

@@ -25,7 +25,6 @@ public class EventService {
     }
 
 
-
     // TODO CHECK IT
     public List<Event> getAllEvents(String idGroup) {
         return groupRepository.findOne(Long.valueOf(idGroup)).getEvents();

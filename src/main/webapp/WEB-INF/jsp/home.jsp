@@ -6,7 +6,6 @@
 
 
 
-    <p> Hello : [$[{#httpServletReques.remoteUser}]]
 
 
     <%--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">--%>

@@ -17,20 +17,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/resources/**", "/registration").permitAll()
-                .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                .loginPage("/login").failureForwardUrl("/login?error")
                 .and()
-                .logout()
-                .permitAll();
+                .httpBasic().and()
+                .cors().disable()
+                .csrf().disable();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+
+
+
+        //        auth
+//                .inMemoryAuthentication()
+//                .withUser("user").password("password").roles("USER");
     }
 }

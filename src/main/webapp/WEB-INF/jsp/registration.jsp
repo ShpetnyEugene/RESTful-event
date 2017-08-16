@@ -1,4 +1,3 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <jsp:include page="elements/header.jsp"/>
 
  <form action="${pageContext.request.contextPath}/registration" method="post">

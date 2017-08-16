@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/users/{userId}/groups")
+@RequestMapping("/groups")
 public class GroupsController {
 
     private static final Logger log = Logger.getLogger(GroupsController.class);
@@ -29,8 +29,8 @@ public class GroupsController {
     }
 
     @PostMapping
-    public void createGroup(@RequestParam("name") String name, @PathVariable long userId) {
+    public void createGroup(@RequestParam("name") String name) {
         log.info("Created new group with name: " + name);
-        service.createGroup(name,userId);
+        service.createGroup(name);
     }
 }

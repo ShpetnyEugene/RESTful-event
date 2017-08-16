@@ -2,7 +2,7 @@
 
 
 
-<form action="${pageContext.request.contextPath}/users/{userID}/groups" method="post">
+<form action="${pageContext.request.contextPath}/groups" method="post">
 
 
     <p> Name: <p>
