@@ -4,10 +4,7 @@ import com.shpetny.services.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Shpetny Eugene
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
     private static final Logger log = Logger.getLogger(LoginController.class);
@@ -27,13 +23,15 @@ public class LoginController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/login")
     public String showLoginPage() {
         return "login";
     }
 
-    @PostMapping
-    public String enterInSystem(@RequestParam("login") String login, @RequestParam("password") String password) {
+
+
+    @PostMapping("/login")
+    public String enterInSystem(@RequestParam String login, @RequestParam String password) {
         if (service.checkPasswordByLogin(login, password)) {
             log.info("Login user with nickName: " + login);
             return "redirect:home";

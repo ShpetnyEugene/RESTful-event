@@ -25,6 +25,11 @@ public class EventService {
     }
 
 
+    public List<Event> getEventsNearly (){
+//        return repository.
+        return null;
+    }
+
     // TODO CHECK IT
     public List<Event> getAllEvents(String idGroup) {
         return groupRepository.findOne(Long.valueOf(idGroup)).getEvents();

@@ -34,6 +34,8 @@ public class GroupService {
     //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
 
+        String name1 = SecurityContextHolder.getContext().getAuthentication().getName();
+
         name.isEmpty();
 
 

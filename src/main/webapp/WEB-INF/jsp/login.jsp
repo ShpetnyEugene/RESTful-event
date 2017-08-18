@@ -5,13 +5,15 @@
 
 
     <label>
-        <input type="text" name="login">
+        <input type="text" name="username">
     </label>
     <p>
         <label>
             <input type="password" name="password">
         </label>
     <p>
+
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
         <button type="submit">Login in</button>
 </form>
