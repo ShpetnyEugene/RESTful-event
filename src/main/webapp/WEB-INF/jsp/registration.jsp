@@ -5,13 +5,13 @@
 
     <p>Enter nick Name: </p>
     <label>
-        <input type="text" name="nickName">
+        <input type="text" name="nickName" required>
     </label>
 
 
     <p> Enter password: </p>
     <label>
-        <input type="password" name="password1">
+        <input type="password" name="password1"required>
     </label>
 
 

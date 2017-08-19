@@ -5,11 +5,11 @@
 
 
     <label>
-        <input type="text" name="username">
+        <input type="text" name="username" required>
     </label>
     <p>
         <label>
-            <input type="password" name="password">
+            <input type="password" name="password" required>
         </label>
     <p>
 

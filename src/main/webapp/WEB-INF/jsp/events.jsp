@@ -22,24 +22,28 @@
 
 
     <label>
-        <input type="text" name="name">
+        <input type="text" name="name" required>
     </label>
 
     <p>
-
-
         <label>
-            <input type="text" name="latitude">
+            <input type="text" name="latitude" required>
         </label>
     <p>
         <label>
-            <input type="text" name="longitude">
+            <input type="text" name="longitude" required>
         </label>
-
-
+        <p>
+            <label>
+                <input type="datetime-local" name="dateTime" required>
+            </label>
     <p>
 
-        <button type="submit">Create event</button>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+
+        <button type="reset">Reset</button>
+        <button type="submit" value="submit">Create event</button>
 </form>
 
 

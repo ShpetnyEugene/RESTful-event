@@ -1,6 +1,7 @@
 package com.shpetny.services;
 
 import com.shpetny.models.Group;
+import com.shpetny.models.User;
 import com.shpetny.persistence.GroupRepository;
 import com.shpetny.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,27 +24,17 @@ public class GroupService {
         this.userRepository = userRepository;
     }
 
+
+    // TODO CHANGE THIS MAYBE_
+
     public void createGroup(String name){
         Group group = new Group(name);
-
-
-        // TODO CHANGE THIS MAYBE_
+        repository.save(group);
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String nameUser = auth.getName(); //get logged in username
-    //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
-
-        String name1 = SecurityContextHolder.getContext().getAuthentication().getName();
-
-        name.isEmpty();
-
-
-//        userRepository.findOne(userID).getGroups().add(group);
-//        group.getUsers().add(userRepository.findById(userID));
-//
-//
-//        repository.save(group);
+        User user = userRepository.findByNickName(auth.getName());
+        user.getGroups().add(group);
+        userRepository.save(userRepository.findByNickName(auth.getName()));
     }
 
 
