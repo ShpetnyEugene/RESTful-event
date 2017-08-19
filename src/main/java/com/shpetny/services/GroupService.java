@@ -42,4 +42,9 @@ public class GroupService {
     public List<Group> getAllGroups(){
         return repository.findAll();
     }
+
+    public Group getGroupByName(String name){
+        return repository.findByName(name);
+    }
+
 }

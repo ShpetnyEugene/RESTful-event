@@ -36,13 +36,14 @@ public class EventsController {
                             @RequestParam("dateTime") String dateTime,
                             @RequestParam("longitude") String longitude) {
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime localDateTime = LocalDateTime.parse(dateTime, formatter);
 
-        System.out.println(dateTime);
+
         // 2017-08-19T21:00
-        dateTime.isEmpty();
 
-        // TODO CHANGE DATE TIME
-        service.createEvent(new Event(name, "1", LocalDateTime.now(),
+        // TODO CHANGE GROUP ID
+        service.createEvent(new Event(name, "1", localDateTime,
                 new Coordinate(Double.parseDouble(latitude), Double.parseDouble(longitude))));
     }
 }
