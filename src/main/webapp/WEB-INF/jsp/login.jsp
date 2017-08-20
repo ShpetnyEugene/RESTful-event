@@ -3,6 +3,12 @@
 
 <form action="${pageContext.request.contextPath}/login" method="post">
 
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
 
     <label>
         <input type="text" name="username" required>

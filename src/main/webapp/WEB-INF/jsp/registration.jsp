@@ -20,8 +20,12 @@
         <input type="password" name="password2">
     </label>
 
-    <p>
+
+     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+     <p>
     <button type="submit">Sign Up</button>
 
+ </form>
 
 <jsp:include page="elements/footer.jsp"/>
