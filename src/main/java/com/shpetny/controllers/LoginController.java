@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
  * @author Shpetny Eugene
  * @version 1.0
  */
-
 @Controller
 public class LoginController {
 

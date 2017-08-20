@@ -27,14 +27,15 @@ public class GroupService {
 
     // TODO CHANGE THIS MAYBE_
 
+
+    // TODO СДЕЛАТЬ НАВЕРНОЕ ССЫЛКУ НА ЮЗЕРОВ ИБО STACKOVERFLOW
     public void createGroup(String name){
         Group group = new Group(name);
-        repository.save(group);
-
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByNickName(auth.getName());
         user.getGroups().add(group);
-        userRepository.save(userRepository.findByNickName(auth.getName()));
+        repository.save(group);
+        userRepository.save(user);
     }
 
 

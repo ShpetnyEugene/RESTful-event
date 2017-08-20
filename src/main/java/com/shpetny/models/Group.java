@@ -3,6 +3,7 @@ package com.shpetny.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,8 +15,8 @@ public class Group {
     @Id
     private String id;
     private String name;
-    private List<User> users;
-    private List<Event> events;
+    private List<User> users = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
 
     public Group(String name, List<User> users, List<Event> events) {
         this.name = name;
