@@ -3,6 +3,7 @@ package com.shpetny.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public class User {
     private String nickName;
     private String password;
     private Coordinate coordinate;
-    private List<Group> groups;
+    private List<Group> groups = new ArrayList<>();
 
 
     public User(String nickName, String password, Coordinate coordinate, List<Group> groups) {

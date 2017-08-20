@@ -37,6 +37,8 @@ public class EventsController {
                             @RequestParam("longitude") String longitude) {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        // TODO CHECK THIS
         LocalDateTime localDateTime = LocalDateTime.parse(dateTime, formatter);
 
 
