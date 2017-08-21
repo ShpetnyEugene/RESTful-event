@@ -40,10 +40,10 @@
     <p>
 
     <p>
-        <select size="5" multiple name="groups[]">
+        <select size="1" multiple name="groupId" required>
             <option disabled>Select groups</option>
             <c:forEach items="${groups}" var="group">
-                <option value="${group.getId()}" name="groupId">${group.getName()}</option>
+                <option value="${group.getId()}">${group.getName()}</option>
             </c:forEach>
         </select>
     </p>

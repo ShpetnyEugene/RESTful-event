@@ -1,6 +1,7 @@
 package com.shpetny.services;
 
 import com.shpetny.models.Event;
+import com.shpetny.models.Group;
 import com.shpetny.persistence.EventRepository;
 import com.shpetny.persistence.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,16 @@ public class EventService {
         this.repository = repository;
     }
 
-    public void createEvent(Event event) {
+    // TODO
+    public void createEvent(Event event, String idGroup) {
+        Group group = groupRepository.findById(idGroup);
+        group.getEvents().add(event);
+        groupRepository.save(group);
         repository.save(event);
     }
 
 
-    public List<Event> getEventsNearly (){
+    public List<Event> getEventsNearly() {
 //        return repository.
         return null;
     }

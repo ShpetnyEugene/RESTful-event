@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -21,20 +20,18 @@ import java.time.format.DateTimeFormatter;
 public class EventsController {
 
 
-    @Autowired
-    private GroupService groupService;
-
+    private final GroupService groupService;
 
 
     private final EventService service;
 
     @Autowired
-    public EventsController(EventService service) {
+    public EventsController(EventService service, GroupService groupService) {
         this.service = service;
+        this.groupService = groupService;
     }
 
 
-    // TODO
     @GetMapping
     public String showPages(Model model) {
         model.addAttribute("groups", groupService.getAllGroups());
@@ -49,18 +46,9 @@ public class EventsController {
                             @RequestParam("groupId") String groupId) {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-
-
-        String q = groupId;
-        groupId.isEmpty();
-        // TODO CHECK THIS
+        dateTime = dateTime.replace("T", " ");
         LocalDateTime localDateTime = LocalDateTime.parse(dateTime, formatter);
-
-
-        // 2017-08-19T21:00
-
-        // TODO CHANGE GROUP ID
-        service.createEvent(new Event(name, "1", localDateTime,
-                new Coordinate(Double.parseDouble(latitude), Double.parseDouble(longitude))));
+        service.createEvent(new Event(name, groupId, localDateTime,
+                new Coordinate(Double.parseDouble(latitude), Double.parseDouble(longitude))),groupId);
     }
 }

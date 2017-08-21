@@ -27,7 +27,6 @@
         <th>Name</th>
         <th>Count events</th>
         <th>Count users</th>
-        <th>Action</th>
     </tr>
     <c:forEach var="groups" items="${groups}">
         <tr>
