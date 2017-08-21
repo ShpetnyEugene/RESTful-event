@@ -23,13 +23,9 @@ public class GroupsController {
         this.service = service;
     }
 
-
-    // TODO ADD SHOW ALL GROUP, BUT WHERE
-
-
     @GetMapping
     public String showPage(Model model) {
-        model.addAttribute("groups",service.getAllGroups());
+        model.addAttribute("groups", service.getAllGroups());
         return "groups";
     }
 

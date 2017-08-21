@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/logout")
 public class LogoutController {
 
-
     @GetMapping
     public String onLogoutSuccess(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -26,6 +25,5 @@ public class LogoutController {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/login?logout";
-
     }
 }

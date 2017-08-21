@@ -5,6 +5,7 @@
 <form action="${pageContext.request.contextPath}/groups" method="post">
 
 
+
     <p> Name:
     <p>
 
@@ -25,12 +26,15 @@
         <th>ID</th>
         <th>Name</th>
         <th>Count events</th>
+        <th>Count users</th>
+        <th>Action</th>
     </tr>
     <c:forEach var="groups" items="${groups}">
         <tr>
             <td>${groups.getId()}</td>
             <td>${groups.getName()}</td>
             <td>${groups.getEvents().size()}</td>
+            <td>${groups.getUsers().size()}</td>
         </tr>
     </c:forEach>
 

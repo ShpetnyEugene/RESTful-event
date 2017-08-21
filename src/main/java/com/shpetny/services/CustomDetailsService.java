@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Shpetny Eugene
+ * @version 1.0
+ */
 @Service("customUserDetailsService")
 public class CustomDetailsService implements UserDetailsService {
 

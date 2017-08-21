@@ -6,18 +6,18 @@
 
 
     <%--<table>--%>
-        <%--<tr>--%>
-            <%--Name:--%>
-        <%--</tr>--%>
-        <%----%>
-        <%--<tr>--%>
-            <%--Coordinate:--%>
-        <%--</tr>--%>
-        <%----%>
-        <%----%>
-        <%--<c:forEach items="events" var="{items}">--%>
-            <%----%>
-        <%--</c:forEach>--%>
+    <%--<tr>--%>
+    <%--Name:--%>
+    <%--</tr>--%>
+    <%----%>
+    <%--<tr>--%>
+    <%--Coordinate:--%>
+    <%--</tr>--%>
+    <%----%>
+    <%----%>
+    <%--<c:forEach items="events" var="{items}">--%>
+    <%----%>
+    <%--</c:forEach>--%>
     <%--</table>--%>
 
 
@@ -33,17 +33,27 @@
         <label>
             <input type="text" name="longitude" required>
         </label>
-        <p>
-            <label>
-                <input type="datetime-local" name="dateTime" required>
-            </label>
+    <p>
+        <label>
+            <input type="datetime-local" name="dateTime" required>
+        </label>
     <p>
 
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <p>
+        <select size="5" multiple name="groups[]">
+            <option disabled>Select groups</option>
+            <c:forEach items="${groups}" var="group">
+                <option value="${group.getId()}" name="groupId">${group.getName()}</option>
+            </c:forEach>
+        </select>
+    </p>
 
 
-        <button type="reset">Reset</button>
-        <button type="submit" value="submit">Create event</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+
+    <button type="reset">Reset</button>
+    <button type="submit" value="submit">Create event</button>
 </form>
 
 
