@@ -1,7 +1,8 @@
 package com.shpetny.controllers;
 
+import com.shpetny.services.EventService;
 import com.shpetny.services.GroupService;
-import org.apache.log4j.Logger;
+import com.shpetny.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,28 +16,23 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/groups")
-public class GroupsController {
-
-    private static final Logger log = Logger.getLogger(GroupsController.class);
-
-    private final GroupService service;
+@RequestMapping("/events/all")
+public class AllEventsController {
 
     @Autowired
-    public GroupsController(GroupService service) {
+    private GroupService groupService;
+
+    private final EventService service;
+
+    @Autowired
+    public AllEventsController(EventService service) {
         this.service = service;
     }
 
-    @GetMapping
-    public String showPage(Model model) {
-        model.addAttribute("groups", service.getAllGroups());
-        return "groups";
-    }
-
     @PostMapping
-    public String createGroup(@RequestParam("name") String name) {
-        log.info("Created new group with name: " + name);
-        service.createGroup(name);
-        return "redirect:groups";
+    public String showAllEvents(Model model, @RequestParam("groupId") String idGroup){
+        model.addAttribute("events",service.getAllEvents(idGroup));
+        model.addAttribute("name",groupService.getGroupById(idGroup).getName());
+        return "eventsAll";
     }
 }

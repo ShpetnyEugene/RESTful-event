@@ -18,4 +18,6 @@ import java.util.List;
 @Repository
 public interface EventRepository extends MongoRepository<Event, Long> {
     List<Event> findByCoordinateNearAndDateTime(Coordinate coordinate, LocalDateTime dateTime);
+
+    Event findById(String id);
 }

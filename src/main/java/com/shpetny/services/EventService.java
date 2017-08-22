@@ -21,6 +21,10 @@ public class EventService {
         this.repository = repository;
     }
 
+    public Event getEventById(String id){
+        return repository.findById(id);
+    }
+
     // TODO
     public void createEvent(Event event, String idGroup) {
         Group group = groupRepository.findById(idGroup);
@@ -37,6 +41,6 @@ public class EventService {
 
     // TODO CHECK IT
     public List<Event> getAllEvents(String idGroup) {
-        return groupRepository.findOne(Long.valueOf(idGroup)).getEvents();
+        return groupRepository.findById(idGroup).getEvents();
     }
 }

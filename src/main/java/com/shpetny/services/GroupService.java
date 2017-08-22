@@ -28,6 +28,7 @@ public class GroupService {
     // TODO CHANGE THIS MAYBE_
 
 
+
     // TODO СДЕЛАТЬ НАВЕРНОЕ ССЫЛКУ НА ЮЗЕРОВ ИБО STACKOVERFLOW
     public void createGroup(String name){
         Group group = new Group(name);
@@ -44,6 +45,9 @@ public class GroupService {
         return repository.findAll();
     }
 
+    public Group getGroupById(String id){
+        return repository.findById(id);
+    }
     public Group getGroupByName(String name){
         return repository.findByName(name);
     }

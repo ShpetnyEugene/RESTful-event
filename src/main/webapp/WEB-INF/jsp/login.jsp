@@ -1,27 +1,27 @@
 <jsp:include page="elements/header.jsp"/>
 
-
-<form action="${pageContext.request.contextPath}/login" method="post">
-
-    <div th:if="${param.error}">
-        Invalid username and password.
+<form action="${pageContext.request.contextPath}/login" method="post" class="form-horizontal" style="width: 30%">
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Login</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" name="username" placeholder="userName" required>
+        </div>
     </div>
-    <div th:if="${param.logout}">
-        You have been logged out.
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" id="inputPassword3" required
+                   placeholder="Password">
+        </div>
     </div>
-
-    <label>
-        <input type="text" name="username" required>
-    </label>
-    <p>
-        <label>
-            <input type="password" name="password" required>
-        </label>
-    <p>
-
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-        <button type="submit">Login in</button>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Sign in</button>
+        </div>
+    </div>
+
 </form>
 
 
