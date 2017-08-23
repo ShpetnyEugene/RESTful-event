@@ -15,6 +15,11 @@
 
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&load=Geolink"
+            type="text/javascript"></script>
+
 </head>
 <body>
 

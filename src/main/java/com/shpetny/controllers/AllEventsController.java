@@ -2,11 +2,9 @@ package com.shpetny.controllers;
 
 import com.shpetny.services.EventService;
 import com.shpetny.services.GroupService;
-import com.shpetny.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,20 +17,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/events/all")
 public class AllEventsController {
 
-    @Autowired
-    private GroupService groupService;
-
+    private final GroupService groupService;
     private final EventService service;
 
     @Autowired
-    public AllEventsController(EventService service) {
+    public AllEventsController(EventService service, GroupService groupService) {
         this.service = service;
+        this.groupService = groupService;
     }
 
     @PostMapping
-    public String showAllEvents(Model model, @RequestParam("groupId") String idGroup){
-        model.addAttribute("events",service.getAllEvents(idGroup));
-        model.addAttribute("name",groupService.getGroupById(idGroup).getName());
+    public String showAllEvents(Model model, @RequestParam("groupId") String idGroup) {
+        model.addAttribute("events", service.getAllEvents(idGroup));
+        model.addAttribute("name", groupService.getGroupById(idGroup).getName());
         return "eventsAll";
     }
 }
