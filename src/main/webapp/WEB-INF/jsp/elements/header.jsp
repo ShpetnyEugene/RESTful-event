@@ -41,6 +41,8 @@
                         class="sr-only">(current)</span></a></li>
                 <li><a href="${pageContext.request.contextPath}/groups">Groups<span class="sr-only">(current)</span></a>
                 </li>
+                <li><a href="${pageContext.request.contextPath}/users">Users<span class="sr-only">(current)</span></a>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

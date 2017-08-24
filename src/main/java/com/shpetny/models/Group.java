@@ -15,10 +15,10 @@ public class Group {
     @Id
     private String id;
     private String name;
-    private List<User> users = new ArrayList<>();
+    private List<String> users = new ArrayList<>();
     private List<Event> events = new ArrayList<>();
 
-    public Group(String name, List<User> users, List<Event> events) {
+    public Group(String name, List<String> users, List<Event> events) {
         this.name = name;
         this.users = users;
         this.events = events;
@@ -47,11 +47,11 @@ public class Group {
         this.name = name;
     }
 
-    public List<User> getUsers() {
+    public List<String> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(List<String> users) {
         this.users = users;
     }
 

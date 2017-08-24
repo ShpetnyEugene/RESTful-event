@@ -22,9 +22,7 @@
             <td>${events.getCoordinate()}</td>
         </tr>
     </c:forEach>
-
 </table>
-
 
 
 <jsp:include page="elements/footer.jsp"/>

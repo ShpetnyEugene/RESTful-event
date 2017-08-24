@@ -29,6 +29,7 @@
         <th>Name</th>
         <th>Count events</th>
         <th>Count users</th>
+        <th>Action</th>
     </tr>
     <c:forEach var="groups" items="${groups}">
         <tr>
@@ -36,9 +37,14 @@
             <td>${groups.getName()}</td>
             <td>${groups.getEvents().size()}</td>
             <td>${groups.getUsers().size()}</td>
+            <td>
+                <form method="post" action="/groups/join">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <button type="submit" name="join" value="${groups.getId()}">Join</button>
+                </form>
+            </td>
         </tr>
     </c:forEach>
-
 </table>
 
 <jsp:include page="elements/footer.jsp"/>

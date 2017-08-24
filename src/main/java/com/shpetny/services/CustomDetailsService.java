@@ -21,7 +21,6 @@ import java.util.List;
 @Service("customUserDetailsService")
 public class CustomDetailsService implements UserDetailsService {
 
-
     @Autowired
     private final UserRepository repository;
 
@@ -29,13 +28,11 @@ public class CustomDetailsService implements UserDetailsService {
         this.repository = repository;
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = repository.findByNickName(username);
         return new org.springframework.security.core.userdetails.User(user.getNickName(), user.getPassword(), getGrantedAuthorities(user));
     }
-
 
     private List<GrantedAuthority> getGrantedAuthorities(User user) {
         List<GrantedAuthority> authorities = new ArrayList<>();

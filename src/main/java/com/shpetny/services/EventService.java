@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Shpetny Eugene
+ * @version 1.0
+ */
 @Service
 public class EventService {
 
@@ -21,11 +25,6 @@ public class EventService {
         this.repository = repository;
     }
 
-    public Event getEventById(String id){
-        return repository.findById(id);
-    }
-
-    // TODO
     public void createEvent(Event event, String idGroup) {
         Group group = groupRepository.findById(idGroup);
         group.getEvents().add(event);
@@ -39,7 +38,6 @@ public class EventService {
         return null;
     }
 
-    // TODO CHECK IT
     public List<Event> getAllEvents(String idGroup) {
         return groupRepository.findById(idGroup).getEvents();
     }
