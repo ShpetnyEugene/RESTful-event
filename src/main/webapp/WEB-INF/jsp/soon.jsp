@@ -1,11 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <jsp:include page="elements/header.jsp"/>
 
 <table align="center" class="table table-hover" style="width: auto;">
 
     <h3>
-        For group with name: ${nameGroup}
+        Event that will soon occur
     </h3>
     <hr>
     <tr>

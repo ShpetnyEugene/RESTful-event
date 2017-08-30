@@ -4,7 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Shpetny Eugene
@@ -15,10 +17,17 @@ public class Group {
     @Id
     private String id;
     private String name;
-    private List<String> users = new ArrayList<>();
+    private Set<String> users = new HashSet<>();
     private List<Event> events = new ArrayList<>();
 
-    public Group(String name, List<String> users, List<Event> events) {
+    public Group(String name, Set<String> users, List<Event> events) {
+        this.name = name;
+        this.users = users;
+        this.events = events;
+    }
+
+    public Group(String id, String name, Set<String> users, List<Event> events) {
+        this.id = id;
         this.name = name;
         this.users = users;
         this.events = events;
@@ -47,11 +56,11 @@ public class Group {
         this.name = name;
     }
 
-    public List<String> getUsers() {
+    public Set<String> getUsers() {
         return users;
     }
 
-    public void setUsers(List<String> users) {
+    public void setUsers(Set<String> users) {
         this.users = users;
     }
 

@@ -16,9 +16,6 @@
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 
-
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&load=Geolink" type="text/javascript"></script>
-
 </head>
 <body>
 
@@ -43,15 +40,15 @@
                 </li>
                 <li><a href="${pageContext.request.contextPath}/users">Users<span class="sr-only">(current)</span></a>
                 </li>
+                <li><a href="${pageContext.request.contextPath}/soon">Check events<span class="sr-only">(current)</span></a>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login">Login</a></li>
                 <li><a href="/registration">Registration</a></li>
                 <li><a href="/logout">Logout</a></li>
-
             </ul>
         </div>
     </div>
 </nav>
-

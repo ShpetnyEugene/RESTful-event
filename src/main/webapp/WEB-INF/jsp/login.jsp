@@ -21,8 +21,5 @@
             <button type="submit" class="btn btn-default">Sign in</button>
         </div>
     </div>
-
 </form>
-
-
 <jsp:include page="elements/footer.jsp"/>

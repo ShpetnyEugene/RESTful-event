@@ -4,7 +4,7 @@
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Login</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputEmail3" name="nickName" placeholder="Nick name" required>
+            <input type="text" class="form-control" id="inputEmail3" name="nickName" placeholder="Login" required>
         </div>
     </div>
     <div class="form-group">

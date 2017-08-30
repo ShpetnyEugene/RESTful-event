@@ -31,10 +31,22 @@ public class UserService {
         return user != null && user.getPassword().equals(password);
     }
 
+    /**
+     * Add user in data base
+     *
+     * @param user - User where need inser
+     */
     public void addUser(User user) {
         repository.save(user);
     }
 
+
+    /**
+     * Update users coordinate
+     *
+     * @param latitude  - new user latitude
+     * @param longitude - new user longitude
+     */
     public void updateCoordinate(String latitude, String longitude) {
         double lat;
         double lon;

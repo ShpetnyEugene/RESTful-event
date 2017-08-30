@@ -27,10 +27,11 @@ public class GroupService {
         this.userRepository = userRepository;
     }
 
-
-    // TODO CHANGE THIS MAYBE_
-
-
+    /**
+     * Insert user in group with given group ID
+     *
+     * @param groupId - Necessary ID group which need insert user
+     */
     public void joinUser(String groupId) {
         Group group = repository.findById(groupId);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -41,6 +42,11 @@ public class GroupService {
         userRepository.save(user);
     }
 
+    /**
+     * Create group with given name
+     *
+     * @param name - name with need create group
+     */
     public void createGroup(String name) {
         Group group = new Group(name);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -51,12 +57,20 @@ public class GroupService {
         userRepository.save(user);
     }
 
-
-    // TODO ADD COMMENTARY
+    /**
+     * Method return all user groups
+     *
+     * @return List groups or null if groups nit found
+     */
     public List<Group> getAllGroups() {
         return repository.findAll();
     }
 
+    /**
+     * Obtain group with given group ID
+     *
+     * @param id - id group which need to obtain
+     */
     public Group getGroupById(String id) {
         return repository.findById(id);
     }

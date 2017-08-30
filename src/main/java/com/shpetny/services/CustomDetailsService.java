@@ -1,6 +1,5 @@
 package com.shpetny.services;
 
-
 import com.shpetny.models.User;
 import com.shpetny.persistence.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +30,10 @@ public class CustomDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = repository.findByNickName(username);
-        return new org.springframework.security.core.userdetails.User(user.getNickName(), user.getPassword(), getGrantedAuthorities(user));
+        return new org.springframework.security.core.userdetails.User(user.getNickName(), user.getPassword(), getGrantedAuthorities());
     }
 
-    private List<GrantedAuthority> getGrantedAuthorities(User user) {
+    private List<GrantedAuthority> getGrantedAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("USER"));
         return authorities;

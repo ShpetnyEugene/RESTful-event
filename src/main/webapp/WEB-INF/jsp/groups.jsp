@@ -1,9 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="elements/header.jsp"/>
 
-
 <h3>Create new group</h3>
-
 
 <form action="${pageContext.request.contextPath}/groups" method="post" class="form-horizontal" style="width: 30%">
     <div class="form-group">

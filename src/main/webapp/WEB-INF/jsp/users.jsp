@@ -1,6 +1,5 @@
 <jsp:include page="elements/header.jsp"/>
 
-
 <form action="${pageContext.request.contextPath}/users" method="post" class="form-horizontal" style="width: 30%">
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Latitude</label>
@@ -24,19 +23,4 @@
     </div>
 
 </form>
-
-
-<div id="map"></div>
-
-<script type="text/javascript">
-    ymaps.ready(init);
-    function init() {
-        var map = new ymaps.Map("map",
-            {
-                center: [55.783007,37.719026],
-                zoom: [15]
-            })
-    }
-</script>
-
 <jsp:include page="elements/footer.jsp"/>

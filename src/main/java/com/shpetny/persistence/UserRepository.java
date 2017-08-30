@@ -9,10 +9,12 @@ import org.springframework.stereotype.Repository;
  * @version 1.0
  */
 @Repository
-public interface UserRepository extends MongoRepository<User, Long> {
-    // TODO
-    User findById(long id);
+public interface UserRepository extends MongoRepository<User, String> {
 
-    // TODO
+    /**
+     * Get user by Nick Name
+     *
+     * @param nickName - Nick Name user which need find
+     */
     User findByNickName(String nickName);
 }

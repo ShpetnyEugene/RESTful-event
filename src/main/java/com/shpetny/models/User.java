@@ -20,6 +20,14 @@ public class User {
     private List<Group> groups = new ArrayList<>();
 
 
+    public User(String id, String nickName, String password, Coordinate coordinate, List<Group> groups) {
+        this.id = id;
+        this.nickName = nickName;
+        this.password = password;
+        this.coordinate = coordinate;
+        this.groups = groups;
+    }
+
     public User(String nickName, String password, Coordinate coordinate, List<Group> groups) {
         this.nickName = nickName;
         this.password = password;

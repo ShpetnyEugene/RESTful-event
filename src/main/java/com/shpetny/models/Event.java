@@ -1,9 +1,9 @@
 package com.shpetny.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.geo.Point;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.annotation.Generated;
 import java.time.LocalDateTime;
 
 /**
@@ -17,20 +17,24 @@ public class Event {
     private String name;
     private String groupId;
     private LocalDateTime dateTime;
-    private Coordinate coordinate;
+    private Point coordinate;
 
-    public Event(String name, String groupId, LocalDateTime dateTime, Coordinate coordinate) {
+    public Event() {
+    }
+
+    public Event(String id, String name, String groupId, LocalDateTime dateTime, Point coordinate) {
+        this.id = id;
         this.name = name;
         this.groupId = groupId;
         this.dateTime = dateTime;
         this.coordinate = coordinate;
     }
 
-    public Event() {
-    }
-
-    public String getName() {
-        return name;
+    public Event(String name, String groupId, LocalDateTime dateTime, Point coordinate) {
+        this.name = name;
+        this.groupId = groupId;
+        this.dateTime = dateTime;
+        this.coordinate = coordinate;
     }
 
     public String getId() {
@@ -39,6 +43,10 @@ public class Event {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
@@ -61,11 +69,11 @@ public class Event {
         this.dateTime = dateTime;
     }
 
-    public Coordinate getCoordinate() {
+    public Point getCoordinate() {
         return coordinate;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
+    public void setCoordinate(Point coordinate) {
         this.coordinate = coordinate;
     }
 

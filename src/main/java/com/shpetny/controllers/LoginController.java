@@ -4,7 +4,9 @@ import com.shpetny.services.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author Shpetny Eugene
@@ -26,8 +28,6 @@ public class LoginController {
     public String showLoginPage() {
         return "login";
     }
-
-
 
     @PostMapping("/login")
     public String enterInSystem(@RequestParam String login, @RequestParam String password) {

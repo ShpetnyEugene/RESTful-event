@@ -1,6 +1,5 @@
 package com.shpetny.persistence;
 
-
 import com.shpetny.models.Group;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @version 1.0
  */
 @Repository
-public interface GroupRepository extends MongoRepository<Group, Long> {
+public interface GroupRepository extends MongoRepository<Group, String> {
     Group findByName(String name);
     Group findById(String id);
 }
